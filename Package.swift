@@ -49,12 +49,14 @@ let package = Package(
 
         // WebSocket client library built on SwiftNIO
         .package(url: "https://github.com/vapor/websocket-kit.git", from: "2.0.0"),
+
+        .package(url: "https://github.com/vapor/multipart-kit.git", from: "4.0.0-beta")
     ],
     targets: [
         // C helpers
         .target(name: "CBase32"),
         .target(name: "CBcrypt"),
-        .target(name: "CMultipartParser"),
+        //.target(name: "CMultipartParser"),
         .target(name: "COperatingSystem"),
         .target(name: "CURLParser"),
 
@@ -65,9 +67,10 @@ let package = Package(
             .product(name: "Backtrace", package: "swift-backtrace"),
             .target(name: "CBase32"),
             .target(name: "CBcrypt"),
-            .target(name: "CMultipartParser"),
+            //.target(name: "CMultipartParser"),
             .target(name: "COperatingSystem"),
             .target(name: "CURLParser"),
+            .product(name: "MultipartKit", package: "multipart-kit"),
             .product(name: "ConsoleKit", package: "console-kit"),
             .product(name: "Logging", package: "swift-log"),
             .product(name: "Metrics", package: "swift-metrics"),
